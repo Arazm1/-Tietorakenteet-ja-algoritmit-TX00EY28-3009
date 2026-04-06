@@ -59,6 +59,7 @@ class SinglyLinkedList():
 
         # 2. If there's only one Node, make both of them None
         if self._head == self._tail:
+            # del(self._head)
             self._head = None
             self._tail = None
 
@@ -71,6 +72,7 @@ class SinglyLinkedList():
 
             # Remove pointer to the last node
             current_node.next = None
+            # del(self._tail)
             self._tail = current_node
         
         self._size -= 1
