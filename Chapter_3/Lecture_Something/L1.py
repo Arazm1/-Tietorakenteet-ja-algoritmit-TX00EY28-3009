@@ -11,7 +11,8 @@ class ListNode():
 
 class SinglyLinkedList():
     def __init__(self):
-        self._head = None
+        self._head = self._tail = None
+        self._size = 0
 
 
     def __repr__(self):
@@ -22,8 +23,13 @@ class SinglyLinkedList():
             values += f', {current_node.data}'
             current_node = current_node._next
         
-        return f'<SinglyLinkedList: [{values.lstrip(", ")}]>'
+        plural = '' if self._size == 1 else 's'
+        return f'<SingleLinkedList ({self._size} element{plural}): [{values.lstrip(", ")}]>'
+        
+        #return f'<SinglyLinkedList: [{values.lstrip(", ")}]>'
 
+    def __len__(self):
+        return self._size
 
 
     def append(self, value):
@@ -37,19 +43,19 @@ class SinglyLinkedList():
         """
 
         # Create the node with the given value
-        node = ListNode(value, next=None)
+        new_node = ListNode(value)
 
-        # If list is empty just point the header to the new node
-        if self._head is None:
-            self._head = node
+        # If list is empty, point the header and the tail pointers to the new node
+        if self._tail is None:      # Or self._head is None
+            self._head = self._tail = new_node
         
         else:
-            # if list is not empty, locate the last element and point it to the new node
-            current_node = self._head
-            while current_node.next != None:
-                current_node = current_node.next
-            
-            current_node.next = node
+            # If not, update the last node and point it to the new node
+            # and also update the tail pointer itself
+            self._tail.next = new_node
+            self._tail = new_node
+
+        self._size +=1
 
 
     def pop(self):
