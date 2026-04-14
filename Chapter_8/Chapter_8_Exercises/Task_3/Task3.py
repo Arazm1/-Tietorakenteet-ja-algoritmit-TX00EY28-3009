@@ -39,7 +39,4 @@ def binary_search_iterative(array, value):
     return None
     
 
-
-
-
-print(binary_search_iterative([1, 2, 3, 4, 5], 5))
+# print(binary_search_iterative([1, 2, 3, 4, 5], 5))
