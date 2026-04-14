@@ -48,7 +48,6 @@ class Heap:
                 current_index = smallest_index
 
 
-
     def _pop(self):
         index_of_root = 0
         index_of_last = self._size -1
@@ -57,6 +56,7 @@ class Heap:
         # self._heap.pop(index_of_last)
 
         self._size -= 1
+
 
         
 
