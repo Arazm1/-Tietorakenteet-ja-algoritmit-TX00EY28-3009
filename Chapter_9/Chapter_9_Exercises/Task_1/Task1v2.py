@@ -1,6 +1,10 @@
 # Example correct answer
 # Not my solution
 
+from random import randint
+import time
+
+
 def insertion_sort(array):
     # The array will be traversed with a key_index
     for key_index in range(1, len(array)):
